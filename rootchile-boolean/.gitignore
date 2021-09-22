@@ -26,3 +26,4 @@ pnpm-debug.log*
 *.sw?
 
 firebase-service-account.json
+local.database.sqlite3
