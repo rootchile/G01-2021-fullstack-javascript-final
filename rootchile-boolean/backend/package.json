@@ -4,12 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node src/server.js",
     "dev": "nodemon src/server.js",
     "test": "jest --runInBand --coverage",
+    "eslint": "eslint",
+    "lint": " eslint .",
     "jest": "jest",
     "sequelize": "sequelize",
-    "eslint": "eslint",
-    "lint": "eslint ."
+    "db:migrate": "npm run sequelize db:migrate",
+    "heroku-postbuild": "npm run db:migrate -- --env=production"
   },
   "keywords": [],
   "author": "",
@@ -18,6 +21,7 @@
     "express": "^4.17.1",
     "firebase-admin": "^9.11.1",
     "mysql2": "^2.3.0",
+    "pg": "^8.7.1",
     "sequelize": "^6.6.5"
   },
   "devDependencies": {
