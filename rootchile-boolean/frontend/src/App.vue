@@ -9,7 +9,7 @@
         <v-btn text to="/productos">Productos</v-btn>
         <v-btn text>Login</v-btn>
       </v-app-bar>
-      <app-alert 
+      <app-alert
         v-if="alert"
         :message="alert.message"
         :type="alert.type"
@@ -30,7 +30,7 @@ export default {
     AppAlert
   },
   computed: {
-    ...mapState([ 'alert' ])
+    ...mapState(['alert'])
   },
   methods: {
     ...mapActions(['setAlert']),

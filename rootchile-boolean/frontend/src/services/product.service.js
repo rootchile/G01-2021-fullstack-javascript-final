@@ -4,7 +4,7 @@ import { firebaseApp } from '@/firebase'
 const productsURL = 'api/products'
 
 export default {
-  async getProducts() {
+  async getProducts () {
     try {
       const token = await firebaseApp.auth().currentUser?.getIdToken(true)
       const headers = {

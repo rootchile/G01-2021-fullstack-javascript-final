@@ -23,7 +23,7 @@ export default new Vuex.Store({
       try {
         const products = await productService.getProducts()
         commit('SET_PRODUCTS', products)
-      } catch(error) {
+      } catch (error) {
         commit('SET_ALERT', { message: error.message, type: 'error' })
       }
     },

@@ -30,7 +30,7 @@ describe('Login.vue', () => {
 
   it('Successful login redirects to products page', async () => {
     firebaseApp.auth().signInWithEmailAndPassword.mockResolvedValue()
-    const wrapper = mount(App,{
+    const wrapper = mount(App, {
       localVue,
       vuetify: new Vuetify(),
       store,
@@ -53,7 +53,7 @@ describe('Login.vue', () => {
       router
     })
     wrapper.find('[data-cy=login-btn]').trigger('click')
-    
+
     expect(firebaseApp.auth().signInWithEmailAndPassword).not.toHaveBeenCalled()
   })
   it('Shows the global alert when authentication fails ', async () => {
@@ -67,14 +67,13 @@ describe('Login.vue', () => {
     firebaseApp.auth().signInWithEmailAndPassword.mockRejectedValue(new Error(errorMessage))
     wrapper.find('[data-cy=username]').setValue('sebastian@boolean.cl')
     wrapper.find('[data-cy=password]').setValue('academiaboolean')
-    
+
     wrapper.find('[data-cy=login-btn]').trigger('click')
     await flushPromises()
-  
+
     const expectedMessage = 'Error al hacer autenticación'
     expect(wrapper.find('[role=alert]').text()).toEqual(expectedMessage)
-  
-  
+
     expect(store.state.alert).toEqual({
       message: expectedMessage,
       type: 'error'
