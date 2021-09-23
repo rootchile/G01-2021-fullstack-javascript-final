@@ -30,3 +30,4 @@ local.database.sqlite3
 test.database.sqlite3
 
 coverage
+backend/src/public
